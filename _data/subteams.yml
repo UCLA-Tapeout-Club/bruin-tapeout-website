@@ -1,7 +1,6 @@
 # The three subteams, shown on the Home page (short) and About page (full).
 #
 #   id:        used for links like /about/#physical-design. Lowercase-with-dashes.
-#   lead:      the subteam lead's name
 #   short:     one sentence for the home page
 #   image:     a photo in assets/images/subteams/ (JPG, PNG, or SVG).
 #              Landscape images around 1200x900 look best; they're cropped to 4:3.
@@ -10,7 +9,6 @@
 
 - id: architecture-asic-design
   name: Architecture & ASIC Design
-  lead: Akilesh (Aki) Subramaniam
   short: Defines what the chip does and how it does it, from microarchitecture to synthesizable RTL.
   description: >-
     Defines what the chip does and how it does it. Members choose the
@@ -27,7 +25,6 @@
 
 - id: digital-verification
   name: Digital Verification
-  lead: Jessie Chan
   short: Proves the design works before it's fabricated, with testbenches, regressions, and gate-level simulation.
   description: >-
     Proves the design works before it is fabricated. Members write
@@ -44,7 +41,6 @@
 
 - id: physical-design
   name: Physical Design
-  lead: Emma Cao
   short: Turns RTL into a manufacturable layout, from synthesis and place-and-route to signoff.
   description: >-
     Turns RTL into a manufacturable layout. Members synthesize in Cadence
@@ -56,7 +52,7 @@
     - Floorplanning, placement, and clock tree synthesis
     - Routing and static timing analysis
     - Signoff checks (DRC and LVS) and GDS streamout
-  tools: [Cadence Genus, Cadence Innovus, SKY130 PDK]
+  tools: [Cadence Genus, Cadence Innovus]
   image: /assets/images/subteams/physical-design-layout.jpg
   image_alt: A placed-and-routed chip layout, with rows of standard cells and dense metal routing.
   link:

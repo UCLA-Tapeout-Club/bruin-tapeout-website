@@ -2,13 +2,13 @@
 layout: default
 ---
 {%- comment -%}
-  Contact page layout. The email address and mailing address come from
-  _config.yml; the topic list comes from `topics` in contact.md.
+  Contact page layout. The email address comes from _config.yml; the topic
+  list comes from `topics` in contact.md.
 {%- endcomment -%}
 {% include page-hero.html %}
 
 <section class="section">
-  <div class="container contact-grid">
+  <div class="container">
     <div>
       <p class="kicker">Email us at</p>
       <a class="email-big" href="mailto:{{ site.email }}">{{ site.email }}</a>
@@ -23,18 +23,6 @@ layout: default
       <div class="prose note">{{ content }}</div>
       {%- endif %}
     </div>
-    {%- if site.address %}
-    <address>
-      <p class="kicker">Find us</p>
-      <strong>{{ site.title }}</strong>
-      {%- for line in site.address %}
-      {{ line }}<br>
-      {%- endfor %}
-      {%- if page.contact_person %}
-      <br>{{ page.contact_person }}
-      {%- endif %}
-    </address>
-    {%- endif %}
   </div>
 </section>
 

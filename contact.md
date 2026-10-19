@@ -1,5 +1,5 @@
 ---
-# Contact page. The email and mailing address are set in _config.yml.
+# Contact page. The email address is set in _config.yml.
 # `topics` are the rows under "What can we help with?"; each opens an email
 # with that subject line.
 layout: contact
@@ -12,7 +12,6 @@ hero:
   lead: >-
     Questions about joining, sponsoring, or collaborating? Email us and an
     officer will get back to you.
-contact_person: "Project lead: Emma Cao"
 topics:
   - title: Join the team
     text: UCLA students interested in architecture, verification, or physical design. Tell us a bit about yourself.
