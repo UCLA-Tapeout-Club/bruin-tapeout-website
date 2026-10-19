@@ -1,0 +1,19 @@
+# Sponsors, shown on the Sponsors page (and in the "supported by" strip on Home).
+#
+#   name:        short name
+#   full_name:   optional legal or full name
+#   url:         sponsor website
+#   logo:        optional. Put the logo file (SVG or transparent PNG) in
+#                assets/images/sponsors/ and write its path here. If blank, the
+#                name is shown in large type instead.
+#   description: a few sentences about the sponsor and what they make possible
+
+- name: Cadence
+  full_name: Cadence Design Systems
+  url: https://www.cadence.com
+  logo: ""
+  description: >-
+    Cadence is a leader in electronic design automation (EDA) software. Our
+    members learn the digital implementation flow on Cadence tools, including
+    Genus for synthesis and Innovus for place and route. We're grateful for
+    Cadence's support of hands-on chip-design education at UCLA.

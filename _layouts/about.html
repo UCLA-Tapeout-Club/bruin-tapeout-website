@@ -1,0 +1,110 @@
+---
+layout: default
+---
+{%- comment -%}
+  About page layout. The history text lives in about.md; values come from its
+  front matter; subteams and officers come from _data/subteams.yml and
+  _data/officers.yml.
+{%- endcomment -%}
+{% include page-hero.html %}
+
+<section class="section section-flush-top" aria-label="Our history">
+  <div class="container history-grid">
+    <div class="prose prose-lg" data-reveal>
+      {{ content }}
+    </div>
+    <aside class="history-aside" aria-labelledby="timeline-title" data-reveal>
+      <h2 id="timeline-title" class="aside-title">Timeline</h2>
+      <ol class="timeline">
+        {%- for item in site.data.timeline %}
+        <li class="timeline-item{% if item.current %} is-current{% endif %}">
+          <span class="timeline-date">{{ item.date }}</span>
+          <span class="timeline-title">{{ item.title }}</span>
+          <span class="timeline-text">{{ item.text }}</span>
+        </li>
+        {%- endfor %}
+      </ol>
+    </aside>
+  </div>
+</section>
+
+{%- if page.values %}
+<section class="section section-tight" aria-labelledby="values-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">What we believe</p>
+      <h2 id="values-title">{{ page.values_title | default: "How we do things" }}</h2>
+    </div>
+    <ul class="card-grid" role="list">
+      {%- for value in page.values %}
+      <li class="card value-card" data-reveal style="--d: {{ forloop.index0 }}">
+        <span class="card-index" aria-hidden="true">0{{ forloop.index }}</span>
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.text }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section" aria-labelledby="subteams-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Our subteams</p>
+      <h2 id="subteams-title">Three teams, one chip.</h2>
+      <p class="section-lead">Every member joins a subteam. Each one owns a stage of the flow, and they hand work to each other the same way teams do in industry.</p>
+    </div>
+
+    <div class="subteams">
+      {%- for team in site.data.subteams %}
+      <article class="subteam" id="{{ team.id }}" data-reveal>
+        <figure class="subteam-media">
+          <img src="{{ team.image | relative_url }}" alt="{{ team.image_alt }}" loading="lazy">
+        </figure>
+        <div class="subteam-copy">
+          <p class="flow-label">{{ team.step }}</p>
+          <h3>{{ team.name }}</h3>
+          <p class="subteam-tagline">{{ team.tagline }}</p>
+          <p>{{ team.description }}</p>
+          {%- if team.learn %}
+          <h4 class="mini-heading">What you'll learn</h4>
+          <ul class="check-list">
+            {%- for item in team.learn %}
+            <li>{{ item }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if team.tools %}
+          <ul class="tags" role="list" aria-label="Tools">
+            {%- for tool in team.tools %}
+            <li>{{ tool }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if team.link %}
+          <a class="text-link" href="{{ team.link.url }}">{{ team.link.text }} <span aria-hidden="true">→</span></a>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="officers-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Leadership</p>
+      <h2 id="officers-title">Meet the officers</h2>
+      <p class="section-lead">The people keeping the clock running.</p>
+    </div>
+    <ul class="officers" role="list">
+      {%- for officer in site.data.officers %}
+      <li>{% include officer-card.html officer=officer index=forloop.index %}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include cta.html title="Want to join a subteam?" text="Send us an email and we'll tell you how to get involved this quarter." %}

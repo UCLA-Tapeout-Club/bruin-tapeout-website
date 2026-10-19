@@ -1,0 +1,51 @@
+# =============================================================================
+#  Bruin Tapeout website: site-wide settings
+#  Most day-to-day edits happen in the _data/ folder (officers, projects,
+#  sponsors, stats, ...). See README.md for a full editing guide.
+#  NOTE: changes to this file need a server restart when previewing locally.
+# =============================================================================
+
+title: Bruin Tapeout
+tagline: From RTL to real silicon.
+description: >-
+  Bruin Tapeout is a student chip-design team at UCLA. We take undergraduates
+  through the full digital tapeout flow, from RTL to verification to physical
+  design, and send real chips to the fab.
+
+# Contact + links (used in the header, footer, and contact page)
+email: bruintapeout@gmail.com
+github_url: https://github.com/UCLA-Tapeout-Club
+affiliation: IEEE at UCLA
+affiliation_url: https://ieeebruins.com
+
+# Optional social links: fill in a full URL to show a link in the footer.
+social:
+  instagram: ""
+  linkedin: ""
+  discord: ""
+
+# -----------------------------------------------------------------------------
+# Hosting
+#   GitHub Pages project site: https://sugar0ats.github.io/bruin-tapeout_website/
+#   If you move to a custom domain (e.g. bruintapeout.com), set baseurl to ""
+#   and url to "https://bruintapeout.com".
+# -----------------------------------------------------------------------------
+url: "https://sugar0ats.github.io"
+baseurl: "/bruin-tapeout_website"
+
+# -----------------------------------------------------------------------------
+# Build settings (you shouldn't need to touch these)
+# -----------------------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - node_modules

@@ -1,0 +1,161 @@
+---
+layout: default
+---
+{%- comment -%}
+  Home page layout. Text lives in index.md; numbers, subteams, projects,
+  and sponsors come from the _data/ folder.
+{%- endcomment -%}
+{%- assign hero = page.hero -%}
+{%- assign featured = site.data.projects | first -%}
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ hero.eyebrow }}</p>
+      <h1 class="hero-title">{{ hero.title }} <span class="text-gradient">{{ hero.highlight }}</span></h1>
+      <p class="lead">{{ hero.lead }}</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="{{ hero.button_link | relative_url }}">{{ hero.button_text }} <span aria-hidden="true">→</span></a>
+        {%- if hero.secondary_text %}
+        <a class="btn btn-ghost" href="{{ hero.secondary_link | relative_url }}">{{ hero.secondary_text }}</a>
+        {%- endif %}
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="chip-stage">
+        {% include graphics/chip.svg %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section stats-section" aria-labelledby="stats-title">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">By the numbers</p>
+      <h2 id="stats-title">Small team. Real silicon.</h2>
+    </div>
+    <ul class="stats" role="list">
+      {%- for stat in site.data.stats %}
+      <li class="stat" data-reveal style="--d: {{ forloop.index0 }}">
+        <div class="stat-display" data-power-on>
+          <span class="stat-ref" aria-hidden="true">DS{{ forloop.index }}</span>
+          {% include sevenseg.html value=stat.value suffix=stat.suffix %}
+          <span class="sr-only">{{ stat.value }}{{ stat.suffix }}</span>
+        </div>
+        {% include leds.html value=stat.value %}
+        <h3 class="stat-label">{{ stat.label }}</h3>
+        <p class="stat-detail">{{ stat.detail }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section story-section" aria-labelledby="story-title">
+  <div class="container story-grid">
+    <div class="story-copy" data-reveal>
+      <p class="eyebrow">Our story</p>
+      <h2 id="story-title">{{ page.story_title }}</h2>
+      <div class="prose">
+        {{ content }}
+      </div>
+      <a class="btn btn-ghost" href="{{ '/about/' | relative_url }}">Read our full story <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="timeline timeline-compact" data-reveal>
+      {%- for item in site.data.timeline %}
+      <li class="timeline-item{% if item.current %} is-current{% endif %}">
+        <span class="timeline-date">{{ item.date }}</span>
+        <span class="timeline-title">{{ item.title }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section flow-section" aria-labelledby="flow-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How we work</p>
+      <h2 id="flow-title">Three subteams, one tapeout flow.</h2>
+      <p class="section-lead">Each subteam owns one stage of a real ASIC flow. Together, they take a design from an idea to a layout ready for the fab.</p>
+    </div>
+    <ol class="flow" role="list">
+      {%- for team in site.data.subteams %}
+      <li class="flow-step" data-reveal style="--d: {{ forloop.index0 }}">
+        <span class="flow-node" aria-hidden="true"></span>
+        <p class="flow-label">{{ team.step }}</p>
+        <h3>{{ team.name }}</h3>
+        <p>{{ team.short }}</p>
+        <a class="text-link" href="{{ '/about/' | relative_url }}#{{ team.id }}">Meet the team <span aria-hidden="true">→</span></a>
+      </li>
+      {%- endfor %}
+      <li class="flow-step flow-step-final" data-reveal style="--d: {{ site.data.subteams.size }}">
+        <span class="flow-node" aria-hidden="true"></span>
+        <p class="flow-label">04 · Tape out</p>
+        <h3>Silicon</h3>
+        <p>The finished layout ships to the fab and comes back as a real, working chip.</p>
+        <a class="text-link" href="{{ '/projects/' | relative_url }}">See our chips <span aria-hidden="true">→</span></a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{%- if featured %}
+<section class="section" aria-labelledby="featured-title">
+  <div class="container">
+    <article class="feature-card" data-reveal>
+      <div class="feature-copy">
+        <p class="eyebrow">Featured project</p>
+        <h2 id="featured-title">{{ featured.title }}</h2>
+        <p class="status-pill status-{{ featured.status_key }}"><span class="status-dot" aria-hidden="true"></span>{{ featured.status }}</p>
+        <p class="section-lead">{{ featured.tagline }}</p>
+        <dl class="mini-specs">
+          {%- for spec in featured.specs limit: 4 %}
+          <div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
+          {%- endfor %}
+        </dl>
+        <a class="btn btn-primary" href="{{ '/projects/' | relative_url }}#{{ featured.id }}">Explore the project <span aria-hidden="true">→</span></a>
+      </div>
+      {%- if featured.milestones %}
+      <div class="terminal" role="group" aria-label="Project progress">
+        <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span><p>~/{{ featured.id }}</p></div>
+        <div class="terminal-body">
+          <p class="terminal-cmd"><span class="prompt" aria-hidden="true">$</span>make status</p>
+          <ol class="terminal-list">
+            {%- for m in featured.milestones %}
+            <li class="is-{{ m.state }}" style="--i: {{ forloop.index0 }}"><span class="terminal-mark" aria-hidden="true">[{% if m.state == "done" %}✓{% elsif m.state == "current" %}●{% else %} {% endif %}]</span> {{ m.name }}{% if m.state == "current" %}<span class="terminal-note">  ← we are here</span>{% endif %}<span class="sr-only"> ({{ m.state }})</span></li>
+            {%- endfor %}
+          </ol>
+          <p class="terminal-cmd" aria-hidden="true"><span class="prompt">$</span><span class="terminal-cursor"></span></p>
+        </div>
+      </div>
+      {%- endif %}
+    </article>
+  </div>
+</section>
+{%- endif %}
+
+{%- if site.data.sponsors.size > 0 %}
+<section class="section section-tight sponsor-strip" aria-labelledby="sponsor-strip-title">
+  <div class="container sponsor-strip-inner">
+    <h2 id="sponsor-strip-title" class="sponsor-strip-title">Supported by</h2>
+    <ul class="sponsor-strip-list" role="list">
+      {%- for sponsor in site.data.sponsors %}
+      <li>
+        <a href="{{ '/sponsors/' | relative_url }}" class="sponsor-strip-item">
+          {%- if sponsor.logo and sponsor.logo != "" -%}
+          <img src="{{ sponsor.logo | relative_url }}" alt="{{ sponsor.name }}">
+          {%- else -%}
+          {{ sponsor.name }}
+          {%- endif -%}
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{% include cta.html %}

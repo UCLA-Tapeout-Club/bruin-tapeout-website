@@ -1,0 +1,19 @@
+{%- comment -%}
+  A row of eight LEDs showing `value` in binary, like the eight output pins
+  (uo[7:0]) on a Tiny Tapeout chip. Usage: {% include leds.html value=50 %}
+{%- endcomment -%}
+{%- assign powers = "128,64,32,16,8,4,2,1" | split: "," -%}
+{%- assign bits = "" -%}
+<div class="leds" aria-hidden="true">
+  <span class="leds-label">uo[7:0]</span>
+  <span class="leds-row">
+    {%- for p in powers -%}
+    {%- assign pv = p | plus: 0 -%}
+    {%- assign bit = include.value | divided_by: pv | modulo: 2 -%}
+    {%- assign bits = bits | append: bit -%}
+    {%- if forloop.index == 4 -%}{%- assign bits = bits | append: "_" -%}{%- endif -%}
+    <span class="led{% if bit == 1 %} on{% endif %}"></span>
+    {%- endfor -%}
+  </span>
+  <span class="leds-bin">0b{{ bits }}</span>
+</div>

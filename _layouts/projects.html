@@ -1,0 +1,115 @@
+---
+layout: default
+---
+{%- comment -%}
+  Projects page layout. Every project comes from _data/projects.yml.
+{%- endcomment -%}
+{% include page-hero.html %}
+
+<section class="section section-flush-top">
+  <div class="container">
+    {%- assign body = content | strip -%}
+    {%- if body != "" %}
+    <div class="prose prose-lg intro" data-reveal>
+      {{ content }}
+    </div>
+    {%- endif %}
+
+    {%- for project in site.data.projects %}
+    <article class="project" id="{{ project.id }}" data-reveal>
+      <header class="project-header">
+        <div>
+          <p class="flow-label">{{ project.year }}{% if project.specs %}{% for spec in project.specs %}{% if spec.label == "Shuttle" %} · {{ spec.value }}{% endif %}{% endfor %}{% endif %}</p>
+          <h2>{{ project.title }}</h2>
+          <p class="section-lead">{{ project.tagline }}</p>
+        </div>
+        <p class="status-pill status-{{ project.status_key }}"><span class="status-dot" aria-hidden="true"></span>{{ project.status }}</p>
+      </header>
+
+      {%- if project.milestones %}
+      <ol class="milestones" role="list" aria-label="Project progress">
+        {%- for m in project.milestones %}
+        <li class="milestone is-{{ m.state }}"{% if m.state == "current" %} aria-current="step"{% endif %}>
+          <span class="milestone-dot" aria-hidden="true"></span>
+          <span class="milestone-name">{{ m.name }}</span>
+          <span class="sr-only">({{ m.state }})</span>
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- endif %}
+
+      <div class="project-grid">
+        <div class="project-main">
+          <div class="prose">
+            {{ project.summary | markdownify }}
+          </div>
+          {%- if project.features %}
+          <h3 class="mini-heading">Features</h3>
+          <ul class="check-list">
+            {%- for f in project.features %}
+            <li>{{ f }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+
+        {%- if project.specs %}
+        <aside class="spec-sheet" aria-label="Specifications">
+          <h3 class="spec-title">Spec sheet</h3>
+          <dl>
+            {%- for spec in project.specs %}
+            <div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
+            {%- endfor %}
+          </dl>
+          {%- if project.links %}
+          <div class="spec-links">
+            {%- for link in project.links %}
+            <a class="btn {% if forloop.first %}btn-primary{% else %}btn-ghost{% endif %} btn-block" href="{{ link.url }}">{{ link.text }} <span aria-hidden="true">↗</span></a>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+        </aside>
+        {%- endif %}
+      </div>
+
+      {%- if project.encoding %}
+      <div class="encoding">
+        <h3 class="mini-heading">Instruction format</h3>
+        <div class="bitfield" role="table" aria-label="8-bit instruction encoding">
+          <div class="bitfield-row bitfield-fields" role="row">
+            {%- for f in project.encoding %}
+            <div class="bitfield-cell" role="cell" style="--w: {{ f.width }}">
+              <span class="bitfield-bits">[{{ f.bits }}]</span>
+              <span class="bitfield-name">{{ f.field }}</span>
+              <span class="bitfield-note">{{ f.note }}</span>
+            </div>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- if project.image %}
+      <figure class="project-figure">
+        <a href="{{ project.image | relative_url }}">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
+        </a>
+        <figcaption>{{ project.image_caption | default: "Block diagram" }} · tap to open full size</figcaption>
+      </figure>
+      {%- endif %}
+    </article>
+    {%- endfor %}
+
+    {%- if page.next_up %}
+    <div class="next-up" data-reveal>
+      <span class="next-up-icon" aria-hidden="true">+</span>
+      <div>
+        <h2>{{ page.next_up.title }}</h2>
+        <p>{{ page.next_up.text }}</p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{% include cta.html title="Want your name on the next die?" text="Join a subteam and help design, verify, or lay out our next chip." %}

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- comment -%}
+  Contact page layout. The email address comes from _config.yml; the topic
+  cards come from the `topics` list in contact.md.
+{%- endcomment -%}
+{% include page-hero.html %}
+
+<section class="section section-flush-top">
+  <div class="container">
+    <div class="email-card" data-reveal>
+      <p class="eyebrow">Email us at</p>
+      <a class="email-address" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <div class="button-row">
+        <a class="btn btn-primary" href="mailto:{{ site.email }}">Send an email <span aria-hidden="true">→</span></a>
+        <button class="btn btn-ghost" type="button" data-copy="{{ site.email }}">
+          <span data-copy-label>Copy address</span>
+        </button>
+      </div>
+      {%- assign body = content | strip -%}
+      {%- if body != "" %}
+      <div class="prose email-note">{{ content }}</div>
+      {%- endif %}
+    </div>
+
+    {%- if page.topics %}
+    <ul class="card-grid topics" role="list">
+      {%- for topic in page.topics %}
+      <li class="card" data-reveal style="--d: {{ forloop.index0 }}">
+        <span class="card-index" aria-hidden="true">0{{ forloop.index }}</span>
+        <h2 class="card-title">{{ topic.title }}</h2>
+        <p>{{ topic.text }}</p>
+        <a class="text-link" href="mailto:{{ site.email }}?subject={{ topic.subject | uri_escape }}">Email about this <span aria-hidden="true">→</span></a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    <p class="contact-elsewhere" data-reveal>
+      You can also find our code on <a href="{{ site.github_url }}">GitHub</a>.
+    </p>
+  </div>
+</section>

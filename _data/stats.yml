@@ -1,0 +1,19 @@
+# The "by the numbers" readout on the home page.
+#   value:  a whole number from 0 to 255 (shown on a seven-segment display,
+#           and in binary on the eight LEDs underneath)
+#   suffix: optional text after the number, e.g. "+"
+#   label:  what the number counts
+#   detail: a short line underneath
+
+- value: 3
+  label: Subteams
+  detail: RTL Design · Verification · Physical Design
+
+- value: 50
+  suffix: "+"
+  label: Members
+  detail: and growing every quarter
+
+- value: 1
+  label: Chip taped out
+  detail: an 8-bit RISC-V CPU, now at the fab

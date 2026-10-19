@@ -1,0 +1,11 @@
+# Links shown in the header and footer, in order.
+- title: Home
+  url: /
+- title: About
+  url: /about/
+- title: Projects
+  url: /projects/
+- title: Sponsors
+  url: /sponsors/
+- title: Contact
+  url: /contact/
