@@ -1,12 +1,16 @@
 {%- comment -%}
-  Title block at the top of inner pages. Reads `hero` from the page's front matter.
+  Title block at the top of inner pages, styled after the brochure's inner
+  pages. Reads `hero` (kicker, title, lead) from the page's front matter.
 {%- endcomment -%}
 <section class="page-hero">
+  <div class="page-wedge" aria-hidden="true"><span class="wedge-ink"></span><span class="wedge-rainbow"></span></div>
+  <div class="blocks" aria-hidden="true">{% include graphics/blocks.svg %}</div>
   <div class="container">
-    {%- if page.hero.eyebrow %}
-    <p class="eyebrow">{{ page.hero.eyebrow }}</p>
+    {%- if page.hero.kicker %}
+    <p class="kicker">{{ page.hero.kicker }}</p>
     {%- endif %}
     <h1>{{ page.hero.title | default: page.title }}</h1>
+    <span class="title-rule" aria-hidden="true"></span>
     {%- if page.hero.lead %}
     <p class="lead">{{ page.hero.lead }}</p>
     {%- endif %}

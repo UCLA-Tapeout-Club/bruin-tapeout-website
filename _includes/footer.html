@@ -2,11 +2,10 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a class="brand" href="{{ '/' | relative_url }}">
-        {% include graphics/logo.svg %}
-        <span class="brand-name">Bruin <span>Tapeout</span></span>
+        <img src="{{ '/assets/images/logo/mark-badge.png' | relative_url }}" alt="" width="44" height="44">
+        <span class="brand-name">{{ site.title }}</span>
       </a>
       <p>{{ site.tagline }}</p>
-      <p class="footer-note">A student project under <a href="{{ site.affiliation_url }}">{{ site.affiliation }}</a>.</p>
     </div>
 
     <nav class="footer-col" aria-label="Footer">
@@ -23,21 +22,31 @@
       <ul>
         <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         <li><a href="{{ site.github_url }}">GitHub</a></li>
-        {%- if site.social.instagram != "" and site.social.instagram %}
+        {%- if site.social.instagram and site.social.instagram != "" %}
         <li><a href="{{ site.social.instagram }}">Instagram</a></li>
         {%- endif %}
-        {%- if site.social.linkedin != "" and site.social.linkedin %}
+        {%- if site.social.linkedin and site.social.linkedin != "" %}
         <li><a href="{{ site.social.linkedin }}">LinkedIn</a></li>
         {%- endif %}
-        {%- if site.social.discord != "" and site.social.discord %}
+        {%- if site.social.discord and site.social.discord != "" %}
         <li><a href="{{ site.social.discord }}">Discord</a></li>
         {%- endif %}
       </ul>
     </div>
+
+    {%- if site.address %}
+    <div class="footer-col">
+      <h2 class="footer-heading">Find us</h2>
+      <address>
+        {%- for line in site.address %}
+        {{ line }}{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor %}
+      </address>
+    </div>
+    {%- endif %}
   </div>
 
-  <div class="container footer-bottom">
-    <span>© {{ site.time | date: "%Y" }} {{ site.title }}</span>
-    <span class="mono">Designed in Los Angeles · Fabricated in silicon</span>
+  <div class="container">
+    <div class="footer-bottom">© {{ site.time | date: "%Y" }} {{ site.title }} · UCLA, Los Angeles</div>
   </div>
 </footer>

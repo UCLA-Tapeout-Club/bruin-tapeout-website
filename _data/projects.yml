@@ -2,8 +2,8 @@
 # The first project is also featured on the Home page.
 #
 #   id:         used for links like /projects/#riscv8. Lowercase-with-dashes.
-#   status:     short label shown in the colored pill
-#   status_key: controls the pill color: design | fabrication | complete
+#   status:     short status label shown next to a colored dot
+#   status_key: controls the status dot color: design (blue) | fabrication (gold) | complete (green)
 #   summary:    a paragraph or two (leave a blank line between paragraphs).
 #               Markdown works: **bold**, *italic*, [links](https://...).
 #   specs:      the spec sheet. The first four also appear on the Home page.
@@ -29,8 +29,9 @@
     the result back out.
 
     We wrote the design in SystemVerilog, verified it with cocotb testbenches,
-    and hardened it to GDS with Tiny Tapeout's open-source flow. It was
-    submitted on the **SKY26c shuttle** and is **currently being fabricated**.
+    and hardened it to GDS with Tiny Tapeout's open-source flow. It was taped
+    out on SkyWater 130 nm through Tiny Tapeout's **SKY26c shuttle** in
+    September 2026, and it is **currently being fabricated**.
   features:
     - 8-bit instructions in R-type and I-type formats
     - 4-entry register file, 4-instruction memory, and a data-memory register

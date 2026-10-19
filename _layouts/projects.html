@@ -2,28 +2,29 @@
 layout: default
 ---
 {%- comment -%}
-  Projects page layout. Every project comes from _data/projects.yml.
+  Projects page layout. Every project comes from _data/projects.yml; the
+  "What's next" list comes from the `next_up` list in projects.md.
 {%- endcomment -%}
 {% include page-hero.html %}
 
-<section class="section section-flush-top">
+<section class="section">
   <div class="container">
     {%- assign body = content | strip -%}
     {%- if body != "" %}
-    <div class="prose prose-lg intro" data-reveal>
+    <div class="prose section-head">
       {{ content }}
     </div>
     {%- endif %}
 
     {%- for project in site.data.projects %}
-    <article class="project" id="{{ project.id }}" data-reveal>
+    <article class="project" id="{{ project.id }}">
       <header class="project-header">
         <div>
-          <p class="flow-label">{{ project.year }}{% if project.specs %}{% for spec in project.specs %}{% if spec.label == "Shuttle" %} · {{ spec.value }}{% endif %}{% endfor %}{% endif %}</p>
+          <p class="kicker">{{ project.year }}{% for spec in project.specs %}{% if spec.label == "Shuttle" %} · {{ spec.value }}{% endif %}{% endfor %}</p>
           <h2>{{ project.title }}</h2>
-          <p class="section-lead">{{ project.tagline }}</p>
+          <p class="lead">{{ project.tagline }}</p>
         </div>
-        <p class="status-pill status-{{ project.status_key }}"><span class="status-dot" aria-hidden="true"></span>{{ project.status }}</p>
+        <p class="status status-{{ project.status_key }}">{{ project.status }}</p>
       </header>
 
       {%- if project.milestones %}
@@ -31,20 +32,20 @@ layout: default
         {%- for m in project.milestones %}
         <li class="milestone is-{{ m.state }}"{% if m.state == "current" %} aria-current="step"{% endif %}>
           <span class="milestone-dot" aria-hidden="true"></span>
-          <span class="milestone-name">{{ m.name }}</span>
+          <span>{{ m.name }}</span>
           <span class="sr-only">({{ m.state }})</span>
         </li>
         {%- endfor %}
       </ol>
       {%- endif %}
 
-      <div class="project-grid">
-        <div class="project-main">
+      <div class="project-body">
+        <div>
           <div class="prose">
             {{ project.summary | markdownify }}
           </div>
           {%- if project.features %}
-          <h3 class="mini-heading">Features</h3>
+          <h3>Features</h3>
           <ul class="check-list">
             {%- for f in project.features %}
             <li>{{ f }}</li>
@@ -53,63 +54,69 @@ layout: default
           {%- endif %}
         </div>
 
-        {%- if project.specs %}
-        <aside class="spec-sheet" aria-label="Specifications">
-          <h3 class="spec-title">Spec sheet</h3>
-          <dl>
+        <aside aria-label="Specifications">
+          {%- if project.specs %}
+          <dl class="specs">
             {%- for spec in project.specs %}
             <div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
             {%- endfor %}
           </dl>
+          {%- endif %}
           {%- if project.links %}
-          <div class="spec-links">
+          <div class="project-links">
             {%- for link in project.links %}
-            <a class="btn {% if forloop.first %}btn-primary{% else %}btn-ghost{% endif %} btn-block" href="{{ link.url }}">{{ link.text }} <span aria-hidden="true">↗</span></a>
+            <a class="btn{% unless forloop.first %} btn-outline{% endunless %}" href="{{ link.url }}">{{ link.text }}</a>
             {%- endfor %}
           </div>
           {%- endif %}
         </aside>
-        {%- endif %}
       </div>
 
       {%- if project.encoding %}
-      <div class="encoding">
-        <h3 class="mini-heading">Instruction format</h3>
-        <div class="bitfield" role="table" aria-label="8-bit instruction encoding">
-          <div class="bitfield-row bitfield-fields" role="row">
+      <h3>Instruction format</h3>
+      <div class="bitfield">
+        <table>
+          <caption class="sr-only">8-bit instruction encoding</caption>
+          <tr>
             {%- for f in project.encoding %}
-            <div class="bitfield-cell" role="cell" style="--w: {{ f.width }}">
+            <td colspan="{{ f.width }}">
               <span class="bitfield-bits">[{{ f.bits }}]</span>
               <span class="bitfield-name">{{ f.field }}</span>
               <span class="bitfield-note">{{ f.note }}</span>
-            </div>
+            </td>
             {%- endfor %}
-          </div>
-        </div>
+          </tr>
+        </table>
       </div>
       {%- endif %}
 
       {%- if project.image %}
-      <figure class="project-figure">
+      <figure class="figure">
         <a href="{{ project.image | relative_url }}">
           <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
         </a>
-        <figcaption>{{ project.image_caption | default: "Block diagram" }} · tap to open full size</figcaption>
+        <figcaption>{{ project.image_caption | default: "Block diagram" }} (select to open full size)</figcaption>
       </figure>
       {%- endif %}
     </article>
     {%- endfor %}
-
-    {%- if page.next_up %}
-    <div class="next-up" data-reveal>
-      <span class="next-up-icon" aria-hidden="true">+</span>
-      <div>
-        <h2>{{ page.next_up.title }}</h2>
-        <p>{{ page.next_up.text }}</p>
-      </div>
-    </div>
-    {%- endif %}
   </div>
 </section>
+
+{%- if page.next_up %}
+<section class="section" aria-labelledby="next-title">
+  <div class="container">
+    <h2 id="next-title" class="section-head">{{ page.next_up_title | default: "What's next" }}</h2>
+    <ul class="next-list">
+      {%- for item in page.next_up %}
+      <li>
+        <h3>{{ item.title }}{% if item.meta %}<span class="next-meta">{{ item.meta }}</span>{% endif %}</h3>
+        <p>{{ item.text }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
 
 {% include cta.html title="Want your name on the next die?" text="Join a subteam and help design, verify, or lay out our next chip." %}

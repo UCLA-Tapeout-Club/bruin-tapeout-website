@@ -8,15 +8,20 @@
 title: Bruin Tapeout
 tagline: From RTL to real silicon.
 description: >-
-  Bruin Tapeout is a student chip-design team at UCLA. We take undergraduates
-  through the full digital tapeout flow, from RTL to verification to physical
-  design, and send real chips to the fab.
+  Bruin Tapeout is UCLA's undergraduate chip design team. We take students
+  from a design specification to a fabricated chip using industry-standard
+  tools.
 
-# Contact + links (used in the header, footer, and contact page)
+# Contact + links (used in the footer and contact page)
 email: bruintapeout@gmail.com
 github_url: https://github.com/UCLA-Tapeout-Club
-affiliation: IEEE at UCLA
-affiliation_url: https://ieeebruins.com
+
+# Mailing address, one line per entry (footer and contact page).
+# Delete these lines to hide the address.
+address:
+  - Boelter Hall 2825
+  - 420 Westwood Plaza
+  - Los Angeles, CA 90095
 
 # Optional social links: fill in a full URL to show a link in the footer.
 social:

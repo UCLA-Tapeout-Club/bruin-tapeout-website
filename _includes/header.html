@@ -1,8 +1,8 @@
-<header class="site-header" data-header>
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ '/' | relative_url }}">
-      {% include graphics/logo.svg %}
-      <span class="brand-name">Bruin <span>Tapeout</span></span>
+      <img src="{{ '/assets/images/logo/mark-badge.png' | relative_url }}" alt="" width="44" height="44">
+      <span class="brand-name">{{ site.title }}</span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>

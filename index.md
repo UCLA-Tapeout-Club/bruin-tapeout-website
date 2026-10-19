@@ -1,30 +1,29 @@
 ---
-# Home page. Edit the hero text here. The text below the "---" line is the
-# short "Our story" blurb. The numbers come from _data/stats.yml.
+# Home page. Edit the hero text here. The text below the second "---" line is
+# the short "Our story" blurb. The numbers come from _data/stats.yml.
 layout: home
 title: Home
 hero:
-  eyebrow: IEEE at UCLA · Est. 2026
-  title: From RTL to
-  highlight: real silicon.
+  kicker: UCLA · Est. 2026
+  title: From RTL to real silicon.
   lead: >-
-    Bruin Tapeout is a student chip-design team at UCLA. We take undergraduates
-    through the full digital tapeout flow: writing RTL, verifying it, laying it
-    out with industry tools, and sending real chips to the fab.
+    Bruin Tapeout is UCLA's undergraduate chip design team. We take students
+    from a design specification to a fabricated chip using industry-standard
+    tools.
   button_text: Meet the team
   button_link: /about/
   secondary_text: See our first chip
   secondary_link: /projects/
-story_title: Built by students, one gate at a time.
+story_title: Our story
 ---
 
-Bruin Tapeout started in spring 2026 as a project under IEEE at UCLA, with a
-small group of students and one question: *what would it take to put our own
-design on a real chip?*
+Bruin Tapeout started in spring 2026 with a small group of students and one
+question: *what would it take to put our own design on a real chip?*
 
-Our answer was an 8-bit, RISC-V-inspired processor. We wrote it in
-SystemVerilog, tested it until we trusted it, and submitted it to Tiny Tapeout
-that summer. It's being fabricated right now.
+Our answer was a modified 8-bit RISC-V CPU. We designed it, verified it, and
+taped it out on SkyWater 130 nm through Tiny Tapeout in September 2026. It's
+being fabricated now.
 
-Since then we've grown to more than 50 members across three subteams, all
-learning the same flow that industry engineers use to turn code into silicon.
+This fall, more than 40 undergraduates joined our pilot program to learn the
+full flow, and we've grown to 50+ members. Next up is our first full-scale
+tapeout: a low-power SoC on TSMC 65 nm.

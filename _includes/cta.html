@@ -1,18 +1,16 @@
 {%- comment -%}
-  "Get in touch" band shown near the bottom of most pages.
+  "Get in touch" band near the bottom of most pages.
   Optional parameters: title, text
 {%- endcomment -%}
-<section class="section section-tight">
-  <div class="container">
-    <div class="cta" data-reveal>
-      <div class="cta-copy">
-        <h2>{{ include.title | default: "Want to build a chip with us?" }}</h2>
-        <p>{{ include.text | default: "Whether you want to join, sponsor a tapeout, or just ask a question, we'd love to hear from you." }}</p>
-      </div>
-      <div class="button-row">
-        <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Get in touch <span aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </div>
+<section class="section section-tight dark">
+  <div class="container cta">
+    <div>
+      <h2>{{ include.title | default: "Want to build a chip with us?" }}</h2>
+      <p>{{ include.text | default: "Whether you want to join, sponsor a tapeout, or just ask a question, we'd love to hear from you." }}</p>
+    </div>
+    <div class="button-row">
+      <a class="btn" href="{{ '/contact/' | relative_url }}">Get in touch</a>
+      <a class="btn btn-outline" href="mailto:{{ site.email }}">{{ site.email }}</a>
     </div>
   </div>
 </section>

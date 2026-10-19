@@ -1,28 +1,32 @@
 ---
-# Sponsors page. Sponsors themselves live in _data/sponsors.yml.
-# The text below the "---" line is the "become a sponsor" pitch, and
-# `reasons` are the three cards underneath it.
+# Sponsors page. Current sponsors live in _data/sponsors.yml and the tier
+# table in _data/sponsor_tiers.yml. `reasons` are the three "why sponsor"
+# points. The text below the second "---" line is the "How to give" section.
 layout: sponsors
 title: Sponsors
 permalink: /sponsors/
 description: >-
-  The companies that support Bruin Tapeout and hands-on chip-design education
-  at UCLA.
+  The companies that support Bruin Tapeout, and how to sponsor UCLA students
+  taping out their first chips.
 hero:
-  eyebrow: Our sponsors
-  title: Taping out takes more than enthusiasm.
+  kicker: Sponsors
+  title: Help students tape out their first chip.
   lead: >-
-    Chip design runs on professional tools, fabrication slots, and lab
-    hardware. Our sponsors make it possible for students to get all three.
-why_title: Help students tape out
+    Chip design runs on professional tools, compute, and fabrication. Our
+    sponsors make all three possible for UCLA students.
+why_title: Why sponsor us
 reasons:
   - title: Fund real silicon
-    text: Sponsorships help cover fabrication, test boards, and the lab hardware we need to bring up our chips.
+    text: Sponsorships go toward fabrication, compute for EDA tools, and workshops. Our next tapeout is a low-power SoC on TSMC 65 nm.
   - title: Meet future engineers
-    text: Connect with motivated UCLA students who have hands-on experience across the whole RTL-to-GDSII flow.
-  - title: Grow the field
-    text: Help build a pipeline of students who are excited about semiconductors before they ever take a graduate course.
+    text: Our 50+ members learn every stage of an industry chip team, and some have already interned at companies like NVIDIA.
+  - title: Grow the community
+    text: Help build a community of student chip designers ready for careers in architecture, silicon engineering, and VLSI.
+give_title: How to give
 ---
 
-If your company wants to support hands-on chip design at UCLA, we'd love to
-talk. Email us at [{{ site.email }}](mailto:{{ site.email }}?subject=Sponsorship%20inquiry).
+If you're interested in supporting UCLA students taping out their first chip,
+email us at [{{ site.email }}](mailto:{{ site.email }}?subject=Sponsorship%20inquiry).
+We'll get back to you quickly and walk you through the sponsorship process.
+
+On behalf of all our members, thank you for your support.

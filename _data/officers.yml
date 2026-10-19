@@ -1,49 +1,37 @@
-# Officers, shown on the About page in this order.
+# The Leadership section on the About page, shown in this order.
 #
 #   name:     full name
-#   role:     officer title
-#   photo:    put a square photo (about 600x600) in assets/images/officers/
-#             and write its path here, e.g. /assets/images/officers/jane-bruin.jpg
+#   role:     title or role
+#   photo:    a square photo (about 600x600) in assets/images/officers/,
+#             e.g. /assets/images/officers/emma-cao.jpg
 #             Leave it blank ("") to show the person's initials instead.
 #   details:  optional short line, e.g. "Electrical Engineering, Class of 2027"
 #   linkedin: optional full LinkedIn URL
 #   email:    optional email address
 #
-# To add an officer, copy one block (from "- name" down) and paste it below.
-# To remove one, delete their block.
+# To add someone, copy a block (from "- name" down) and paste it below.
+# To remove someone, delete their block.
 
-- name: Your Name
-  role: President
+- name: Emma Cao
+  role: Project Lead · Physical Design Lead
   photo: ""
-  details: Major, Class of 20XX
+  details: ""
   linkedin: ""
 
-- name: Your Name
-  role: Vice President
+- name: Akilesh (Aki) Subramaniam
+  role: Architecture & ASIC Design Lead
   photo: ""
-  details: Major, Class of 20XX
+  details: ""
   linkedin: ""
 
-- name: Your Name
-  role: RTL Design Lead
+- name: Jessie Chan
+  role: Digital Verification Lead
   photo: ""
-  details: Major, Class of 20XX
+  details: ""
   linkedin: ""
 
-- name: Your Name
-  role: Verification Lead
+- name: Nader Sehatbakhsh
+  role: Faculty Advisor
   photo: ""
-  details: Major, Class of 20XX
-  linkedin: ""
-
-- name: Your Name
-  role: Physical Design Lead
-  photo: ""
-  details: Major, Class of 20XX
-  linkedin: ""
-
-- name: Your Name
-  role: Treasurer
-  photo: ""
-  details: Major, Class of 20XX
+  details: ""
   linkedin: ""

@@ -1,6 +1,6 @@
 # Bruin Tapeout website
 
-The public website for **Bruin Tapeout**, UCLA's student chip-design team.
+The public website for **Bruin Tapeout**, UCLA's undergraduate chip design team.
 
 It's a [Jekyll](https://jekyllrb.com) site hosted for free on GitHub Pages.
 **You don't need to install anything to edit it.** Change a file on GitHub,
@@ -17,18 +17,21 @@ Almost every edit is in one of these files:
 
 | I want to change... | Edit this file |
 |:--|:--|
-| Officers (names, roles, photos) | `_data/officers.yml` |
-| Subteam descriptions and pictures | `_data/subteams.yml` |
+| Leadership (names, roles, photos) | `_data/officers.yml` |
+| Subteams (leads, descriptions, pictures) | `_data/subteams.yml` |
 | Projects (status, specs, features, links) | `_data/projects.yml` |
 | Sponsors | `_data/sponsors.yml` |
+| Sponsorship tier table | `_data/sponsor_tiers.yml` |
 | Home page numbers (3 subteams, 50+ members, ...) | `_data/stats.yml` |
 | Timeline milestones (Home and About) | `_data/timeline.yml` |
 | Home page headline, intro, and "Our story" blurb | `index.md` |
-| About page history text and "How we do things" cards | `about.md` |
-| Sponsors page pitch and "why sponsor" cards | `sponsors.md` |
-| Contact page text and topic cards | `contact.md` |
-| Club email, GitHub link, social links | `_config.yml` |
+| About page history and "How we work" list | `about.md` |
+| Projects page "What's next" list | `projects.md` |
+| Sponsors page "Why sponsor us" and "How to give" | `sponsors.md` |
+| Contact page text and topics | `contact.md` |
+| Club email, mailing address, GitHub and social links | `_config.yml` |
 | Menu links | `_data/navigation.yml` |
+| Logo files | `assets/images/logo/` (see [Logo](#logo)) |
 | Colors and fonts | top of `assets/css/main.css` |
 
 Every data file starts with a comment that explains each field.
@@ -49,45 +52,44 @@ Every data file starts with a comment that explains each field.
 
 ## Common tasks
 
-### Add or update an officer
+### Add a photo or a new person to Leadership
 
 1. Upload a square photo (about 600×600, JPG or PNG) to
-   `assets/images/officers/`, e.g. `jane-bruin.jpg`.
+   `assets/images/officers/`, e.g. `emma-cao.jpg`.
    On GitHub: open the folder → **Add file** → **Upload files**.
 2. In `_data/officers.yml`, fill in their block:
 
    ```yaml
-   - name: Jane Bruin
-     role: President
-     photo: /assets/images/officers/jane-bruin.jpg
+   - name: Emma Cao
+     role: Project Lead · Physical Design Lead
+     photo: /assets/images/officers/emma-cao.jpg
      details: Electrical Engineering, Class of 2027
-     linkedin: https://www.linkedin.com/in/janebruin
+     linkedin: https://www.linkedin.com/in/...
    ```
 
-Leave `photo: ""` to show the person's initials instead. Officers appear in
-the order they're listed. To add another officer, copy a whole block (from
-`- name` down) and paste it where you want them to appear.
+Leave `photo: ""` to show the person's initials instead. People appear in the
+order they're listed. To add someone, copy a whole block (from `- name` down)
+and paste it where you want them to appear. If a subteam lead changes, also
+update `lead:` in `_data/subteams.yml`.
 
 ### Replace a subteam picture with a real photo
 
 Upload the photo to `assets/images/subteams/`, then change that subteam's
 `image:` (and `image_alt:`, a short description for screen readers) in
 `_data/subteams.yml`. Landscape photos around 1200×900 look best; they're
-cropped to a 4:3 frame.
+cropped to a 4:3 frame. The Physical Design picture is the layout screenshot
+from our sponsorship brochure; the other two are placeholder illustrations.
 
 ### Update the member count or other stats
 
-Edit `value:` in `_data/stats.yml`. Numbers show up on a seven-segment display
-with the value in binary on eight LEDs underneath (like the chip's output
-pins), so keep each value a whole number between 0 and 255. Use `suffix: "+"`
-for "50+".
+Edit `value:` in `_data/stats.yml`. Use `suffix: "+"` for "50+".
 
 ### Update a project's status
 
 In `_data/projects.yml`:
 
-- Change `status:` (the label) and `status_key:` (the color): `design`,
-  `fabrication`, or `complete`.
+- Change `status:` (the label) and `status_key:` (the color of the dot next
+  to it): `design`, `fabrication`, or `complete`.
 - Move the progress tracker forward by changing each milestone's `state:` to
   `done`, `current`, or `upcoming`.
 
@@ -115,14 +117,36 @@ sections are optional, so delete any that don't apply.
 ### Add a sponsor
 
 Add a block to `_data/sponsors.yml`. To show a logo instead of the name, upload
-it (SVG or transparent PNG, light-colored to suit the dark background) to
+it (SVG or transparent PNG, dark-colored to suit the light page) to
 `assets/images/sponsors/` and set `logo:` to its path. Check the sponsor's
 brand guidelines before using their logo.
+
+### Change the sponsorship tiers
+
+Edit `_data/sponsor_tiers.yml`. Each benefit has a `from:` tier; it gets a
+check mark in that tier and every tier above it.
 
 ### Add a timeline milestone
 
 Add an entry to the bottom of `_data/timeline.yml`. Move `current: true` to
 whichever milestone is happening now.
+
+---
+
+## Logo
+
+`assets/images/logo/` holds web versions of the Bruin Tapeout logo, made from
+the original artwork:
+
+| File | Used for |
+|:--|:--|
+| `logo-badge.png` | The full logo on a black circle (home page, like the brochure cover) |
+| `mark-badge.png` | The bear without the lettering, for small sizes (header and footer) |
+| `logo.png` | The full logo on a transparent background, for dark backgrounds |
+| `favicon.png`, `apple-touch-icon.png` | Browser tab and phone home-screen icons |
+
+If the logo changes, replace these files with new versions of the same size
+and keep the same file names.
 
 ---
 
@@ -191,13 +215,16 @@ case-sensitive: `Jane.JPG` and `jane.jpg` are different files.
 _config.yml          site settings (title, email, URL)
 _data/               all the editable content lists
 _layouts/            page templates (one per page type)
-_includes/           reusable pieces: header, footer, cards, graphics
+_includes/           reusable pieces: header, footer, page header, people
 assets/css/main.css  all styles; colors and fonts are at the top
-assets/js/main.js    mobile menu, scroll animations, copy-email button
-assets/images/       photos, logos, illustrations
+assets/js/main.js    mobile menu and copy-email button
+assets/images/       logo, photos, illustrations
 index.md, about.md, projects.md, sponsors.md, contact.md   the pages
 ```
 
-The site works without JavaScript; the script only adds the mobile menu,
-animations, and the copy button. Animations are turned off for visitors who
-have "reduce motion" enabled.
+The design follows our sponsorship brochure: the same fonts (Sora and IBM
+Plex Sans), warm paper and charcoal backgrounds, the gold rule, and the
+rainbow wedge as the one bright accent.
+
+The site works without JavaScript; the script only adds the mobile menu and
+the copy-email button.

@@ -1,0 +1,31 @@
+# The sponsorship tier table on the Sponsors page (from our brochure).
+#
+#   tiers:    lowest to highest. The table colors them green, gold, and coral.
+#   benefits: each one starts at the tier named in `from` and is included in
+#             every tier above it.
+
+intro: >-
+  Each tier includes everything in the tier below it. Suggested amounts are
+  sized to tapeout costs: Gold covers about half of a 1 mm² 65 nm shuttle.
+
+tiers:
+  - name: Bronze
+    amount: "$1,000"
+  - name: Silver
+    amount: "$2,000"
+  - name: Gold
+    amount: "$3,500+"
+
+benefits:
+  - text: Logo on our website and GitHub repository
+    from: Bronze
+  - text: Sponsor announcements on social media and LinkedIn
+    from: Bronze
+  - text: Member resume book
+    from: Bronze
+  - text: Logo on team shirts and merch
+    from: Bronze
+  - text: Priority scheduling for corporate info sessions, tech talks, and workshops at UCLA
+    from: Silver
+  - text: Dedicated recruiting and networking sessions with members and leads
+    from: Gold

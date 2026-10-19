@@ -1,71 +1,64 @@
-# The three subteams, shown on the About page (full) and Home page (short).
+# The three subteams, shown on the Home page (short) and About page (full).
 #
-#   id:        used for links like /about/#rtl-design. Use lowercase-with-dashes.
-#   step:      the stage of the chip flow this team owns (shown as a small label)
+#   id:        used for links like /about/#physical-design. Lowercase-with-dashes.
+#   lead:      the subteam lead's name
 #   short:     one sentence for the home page
-#   image:     put a photo in assets/images/subteams/ and point to it here
-#              (JPG/PNG/WebP all work; landscape images around 1200x900 look best)
+#   image:     a photo in assets/images/subteams/ (JPG, PNG, or SVG).
+#              Landscape images around 1200x900 look best; they're cropped to 4:3.
 #   image_alt: describe the image for screen readers
 #   link:      optional "learn more" link
 
-- id: rtl-design
-  name: RTL Design
-  step: "01 · Design"
-  tagline: Turning ideas into hardware.
-  short: Designs the microarchitecture and writes the SystemVerilog that defines what our chips actually do.
+- id: architecture-asic-design
+  name: Architecture & ASIC Design
+  lead: Akilesh (Aki) Subramaniam
+  short: Defines what the chip does and how it does it, from microarchitecture to synthesizable RTL.
   description: >-
-    The RTL Design team decides what our chips do and how. Members sketch out
-    microarchitecture, write synthesizable SystemVerilog, and make the tradeoffs
-    between performance, area, and simplicity that every other block depends on.
-    Our first CPU started here: its ALU, register file, control logic, and SPI
-    interface.
+    Defines what the chip does and how it does it. Members choose the
+    microarchitecture, write block specifications, and write synthesizable RTL
+    tuned for power, performance, and area.
   learn:
+    - Choosing a microarchitecture
+    - Writing block specifications
     - Writing synthesizable SystemVerilog
-    - Designing datapaths and control logic
-    - Building state machines and interfaces like SPI
-    - Writing and reading architecture specs
-  tools: [SystemVerilog, Verilog, Git]
-  image: /assets/images/subteams/rtl-design.svg
+    - Designing for power, performance, and area
+  tools: [SystemVerilog, Git]
+  image: /assets/images/subteams/architecture.svg
   image_alt: A code editor showing the SystemVerilog source of our CPU's ALU.
 
-- id: verification
-  name: Verification
-  step: "02 · Verify"
-  tagline: Proving it works before it's set in silicon.
-  short: Writes the testbenches and regressions that catch bugs before they become permanent.
+- id: digital-verification
+  name: Digital Verification
+  lead: Jessie Chan
+  short: Proves the design works before it's fabricated, with testbenches, regressions, and gate-level simulation.
   description: >-
-    You can't patch a chip after it's fabricated, so the Verification team's job
-    is to find every bug first. Members write self-checking testbenches, run
-    directed and randomized tests, dig through waveforms, and keep regression
-    suites running on every commit. Nothing tapes out until it gets past them.
+    Proves the design works before it is fabricated. Members write
+    self-checking testbenches, build regression suites, and run gate-level
+    simulation to catch bugs before they are locked into silicon.
   learn:
-    - Writing self-checking testbenches in SystemVerilog and Python
+    - Writing self-checking testbenches
     - Directed and randomized testing
-    - Debugging with waveform viewers
-    - Running regressions in continuous integration
+    - Building regression suites
+    - Gate-level simulation
   tools: [cocotb, Icarus Verilog, GTKWave, GitHub Actions]
   image: /assets/images/subteams/verification.svg
   image_alt: A waveform viewer showing SPI signals and a passing test.
 
 - id: physical-design
   name: Physical Design
-  step: "03 · Implement"
-  tagline: From netlist to layout.
-  short: Synthesizes, places, and routes designs into a layout the fab can manufacture.
+  lead: Emma Cao
+  short: Turns RTL into a manufacturable layout, from synthesis and place-and-route to signoff.
   description: >-
-    The Physical Design team turns RTL into geometry a fab can build. Members
-    synthesize designs into logic gates, then floorplan, place, route, and close
-    timing, working through the same RTL-to-GDSII flow used in industry. They
-    learn from our own physical design wiki, which covers everything from
-    transistors to signoff.
+    Turns RTL into a manufacturable layout. Members synthesize in Cadence
+    Genus, place and route in Innovus, close timing, and pass DRC and LVS
+    before streaming out GDS. New members build their own place-and-route flow
+    from a template.
   learn:
     - Logic synthesis and timing constraints
     - Floorplanning, placement, and clock tree synthesis
     - Routing and static timing analysis
-    - Signoff checks such as DRC, LVS, and antenna
-  tools: [Cadence Genus, Cadence Innovus, LibreLane, SKY130 PDK]
-  image: /assets/images/subteams/physical-design.svg
-  image_alt: A chip layout with rows of standard cells and metal routing.
+    - Signoff checks (DRC and LVS) and GDS streamout
+  tools: [Cadence Genus, Cadence Innovus, SKY130 PDK]
+  image: /assets/images/subteams/physical-design-layout.jpg
+  image_alt: A placed-and-routed chip layout, with rows of standard cells and dense metal routing.
   link:
-    text: Read the PD wiki
+    text: Read our physical design wiki
     url: https://github.com/UCLA-Tapeout-Club/pd-wiki

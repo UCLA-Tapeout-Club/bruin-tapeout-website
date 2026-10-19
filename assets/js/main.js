@@ -1,6 +1,6 @@
 // Bruin Tapeout: small progressive enhancements.
-// The site works without JavaScript; this only adds the mobile menu,
-// scroll-in animations, and the copy-email button.
+// The site works without JavaScript; this only adds the mobile menu and the
+// copy-email button.
 
 (function () {
   "use strict";
@@ -22,38 +22,6 @@
         toggle.focus();
       }
     });
-    nav.addEventListener("click", function (e) {
-      if (e.target.closest("a")) setOpen(false);
-    });
-  }
-
-  // Header border once the page is scrolled
-  var header = document.querySelector("[data-header]");
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  // Reveal elements as they scroll into view
-  var revealables = document.querySelectorAll("[data-reveal]");
-  if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
-    );
-    revealables.forEach(function (el) { observer.observe(el); });
-  } else {
-    revealables.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
   // Copy-to-clipboard buttons, e.g. <button data-copy="text">

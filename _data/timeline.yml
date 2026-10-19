@@ -3,22 +3,22 @@
 # Set `current: true` on the milestone that is happening right now.
 
 - date: Spring 2026
-  title: Founded under IEEE at UCLA
+  title: Founded at UCLA
   text: A small group of students sets out to take a design all the way from RTL to silicon.
 
 - date: Spring 2026
   title: First lines of RTL
-  text: Work begins on an 8-bit, RISC-V-inspired CPU, starting with the ALU, register file, and program counter.
+  text: Work begins on a modified 8-bit RISC-V CPU, starting with the ALU, register file, and program counter.
 
-- date: Summer 2026
+- date: September 2026
   title: Our first tapeout
-  text: The CPU gets an SPI interface, passes its testbenches, is hardened to GDS, and ships on Tiny Tapeout's SKY26c shuttle.
+  text: The CPU is taped out on SkyWater 130 nm through Tiny Tapeout.
 
 - date: Fall 2026
-  title: Three subteams, 50+ members
-  text: We reorganize into RTL Design, Verification, and Physical Design, and start training on Cadence Genus and Innovus.
+  title: Pilot program
+  text: More than 40 undergraduates join to learn the full flow across three subteams, and capstone teams design their own CPUs.
 
 - date: Now
   title: Chip in fabrication
-  text: Our first chip is at the fab. Next up are bring-up, testing, and our next design.
+  text: Next up is our first full-scale tapeout, a low-power SoC on TSMC 65 nm.
   current: true

@@ -1,19 +1,18 @@
-# The "by the numbers" readout on the home page.
-#   value:  a whole number from 0 to 255 (shown on a seven-segment display,
-#           and in binary on the eight LEDs underneath)
-#   suffix: optional text after the number, e.g. "+"
+# The three big numbers on the home page.
+#   value:  the number
+#   suffix: optional text right after the number, e.g. "+"
 #   label:  what the number counts
-#   detail: a short line underneath
+#   detail: optional short line underneath
 
 - value: 3
   label: Subteams
-  detail: RTL Design · Verification · Physical Design
+  detail: Architecture, verification, and physical design
 
 - value: 50
   suffix: "+"
   label: Members
-  detail: and growing every quarter
+  detail: Undergraduate and graduate students
 
 - value: 1
   label: Chip taped out
-  detail: an 8-bit RISC-V CPU, now at the fab
+  detail: SkyWater 130 nm, September 2026
