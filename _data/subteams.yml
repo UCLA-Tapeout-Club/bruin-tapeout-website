@@ -58,6 +58,3 @@
   tools: [Cadence Genus, Cadence Innovus, Calibre]
   image: /assets/images/subteams/physical-design-layout.jpg
   image_alt: A placed-and-routed chip layout, with rows of standard cells and dense metal routing.
-  link:
-    text: Read our physical design wiki
-    url: https://github.com/UCLA-Tapeout-Club/pd-wiki
