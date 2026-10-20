@@ -1,0 +1,99 @@
+# Learning resources, shown on the Resources page as one column per track.
+#
+#   id:      used for links like /resources/#verification. Lowercase-with-dashes.
+#   name:    column heading
+#   intro:   one sentence under the heading
+#   subteam: optional, the subteam id in _data/subteams.yml to link to
+#   links:   articles, docs, wikis, and tutorials
+#   videos:  lectures and recorded walkthroughs
+#
+# Each link or video has:
+#   title:   what it's called
+#   url:     full link. Leave it "" to show the item as "Coming soon".
+#   source:  optional, who made it (e.g. "cocotb docs", "YouTube")
+#   note:    optional, one short line on what it's good for
+#   length:  videos only, optional, e.g. "45 min"
+#
+# To add a resource, copy a block (from "- title" down), paste it in the right
+# list, and fill it in. Items appear in the order they're listed.
+
+- id: digital-design
+  name: Digital Design
+  intro: Microarchitecture, block specs, and writing RTL that synthesizes well.
+  subteam: architecture-asic-design
+  links:
+    - title: SystemVerilog quick reference
+      url: ""
+      source: ""
+      note: Syntax for the constructs we use most.
+    - title: Writing synthesizable RTL
+      url: ""
+      source: ""
+      note: Coding patterns that map cleanly to gates.
+    - title: Block specification template
+      url: ""
+      source: ""
+      note: The format we use to spec a block before writing RTL.
+  videos:
+    - title: Digital logic and RTL fundamentals
+      url: ""
+      source: ""
+      length: ""
+    - title: Designing a simple CPU, start to finish
+      url: ""
+      source: ""
+      length: ""
+
+- id: verification
+  name: Verification
+  intro: Testbenches, regressions, and proving the design works before it ships.
+  subteam: digital-verification
+  links:
+    - title: Getting started with cocotb
+      url: ""
+      source: ""
+      note: Set up your first Python testbench.
+    - title: Writing self-checking testbenches
+      url: ""
+      source: ""
+      note: Scoreboards, reference models, and assertions.
+    - title: Reading waveforms in GTKWave
+      url: ""
+      source: ""
+      note: Track down a failing test signal by signal.
+  videos:
+    - title: Intro to cocotb
+      url: ""
+      source: ""
+      length: ""
+    - title: Running regressions with GitHub Actions
+      url: ""
+      source: ""
+      length: ""
+
+- id: physical-design
+  name: Physical Design
+  intro: Synthesis, place and route, timing closure, and signoff.
+  subteam: physical-design
+  links:
+    - title: Bruin Tapeout physical design wiki
+      url: https://github.com/UCLA-Tapeout-Club/pd-wiki
+      source: GitHub
+      note: Our guide to building a place-and-route flow from the template.
+    - title: Timing constraints (SDC) primer
+      url: ""
+      source: ""
+      note: Clocks, input and output delays, and false paths.
+    - title: SKY130 PDK documentation
+      url: ""
+      source: ""
+      note: Layers, design rules, and the standard cell library.
+  videos:
+    - title: The RTL-to-GDS flow, explained
+      url: ""
+      source: ""
+      length: ""
+    - title: Place and route in Cadence Innovus
+      url: ""
+      source: ""
+      length: ""

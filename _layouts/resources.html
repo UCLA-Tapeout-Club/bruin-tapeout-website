@@ -1,0 +1,84 @@
+---
+layout: default
+---
+{%- comment -%}
+  Resources page layout. Every column, link, and video comes from
+  _data/resources.yml. Items with an empty `url` show as "Coming soon".
+{%- endcomment -%}
+{% include page-hero.html %}
+
+<section class="section">
+  <div class="container">
+    {%- assign body = content | strip -%}
+    {%- if body != "" %}
+    <div class="prose section-head">
+      {{ content }}
+    </div>
+    {%- endif %}
+
+    <div class="resource-columns">
+      {%- for track in site.data.resources %}
+      <article class="resource-col" id="{{ track.id }}" aria-labelledby="{{ track.id }}-title">
+        <h2 id="{{ track.id }}-title">{{ track.name }}</h2>
+        <p class="resource-intro">{{ track.intro }}</p>
+
+        {%- if track.links %}
+        <h3 class="kicker">Links and guides</h3>
+        <ul class="resource-list" role="list">
+          {%- for item in track.links %}
+          <li class="resource{% if item.url == "" %} is-placeholder{% endif %}">
+            {%- if item.url != "" %}
+            <a class="resource-title" href="{{ item.url }}">{{ item.title }}</a>
+            {%- else %}
+            <span class="resource-title">{{ item.title }}</span>
+            <span class="soon">Coming soon</span>
+            {%- endif %}
+            {%- if item.note and item.note != "" %}
+            <span class="resource-note">{{ item.note }}</span>
+            {%- endif %}
+            {%- if item.source and item.source != "" %}
+            <span class="resource-meta">{{ item.source }}</span>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+
+        {%- if track.videos %}
+        <h3 class="kicker">Videos</h3>
+        <ul class="resource-list" role="list">
+          {%- for item in track.videos %}
+          <li class="resource resource-video{% if item.url == "" %} is-placeholder{% endif %}">
+            {%- if item.url != "" %}
+            <a class="resource-title" href="{{ item.url }}">{{ item.title }}</a>
+            {%- else %}
+            <span class="resource-title">{{ item.title }}</span>
+            <span class="soon">Coming soon</span>
+            {%- endif %}
+            {%- if item.note and item.note != "" %}
+            <span class="resource-note">{{ item.note }}</span>
+            {%- endif %}
+            {%- capture meta -%}
+              {%- if item.source and item.source != "" %}{{ item.source }}{% endif -%}
+              {%- if item.source and item.source != "" and item.length and item.length != "" %} · {% endif -%}
+              {%- if item.length and item.length != "" %}{{ item.length }}{% endif -%}
+            {%- endcapture -%}
+            {%- if meta != "" %}
+            <span class="resource-meta">{{ meta }}</span>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+
+        {%- assign team = site.data.subteams | where: "id", track.subteam | first %}
+        {%- if team %}
+        <a class="text-link" href="{{ '/about/' | relative_url }}#{{ team.id }}">Meet the {{ team.name }} subteam</a>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta.html title="Know a resource we should add?" text="Send us a link to a guide, lecture, or tool that helped you and we'll add it here." %}

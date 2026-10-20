@@ -7,7 +7,7 @@ It's a [Jekyll](https://jekyllrb.com) site hosted for free on GitHub Pages.
 commit, and the live site updates in a minute or two.
 
 - Live site: <https://sugar0ats.github.io/bruin-tapeout_website/>
-- Pages: Home, About, Projects, Sponsors, Contact
+- Pages: Home, About, Projects, Resources, Sponsors, Contact
 
 ---
 
@@ -27,6 +27,7 @@ Almost every edit is in one of these files:
 | Home page headline, intro, and "Our story" blurb | `index.md` |
 | About page history and "How we work" list | `about.md` |
 | Projects page "What's next" list | `projects.md` |
+| Resources page links and videos | `_data/resources.yml` |
 | Sponsors page "Why sponsor us" and "How to give" | `sponsors.md` |
 | Contact page text and topics | `contact.md` |
 | Club email, mailing address, GitHub and social links | `_config.yml` |
