@@ -14,9 +14,9 @@
 
 - name: Emma Cao
   role: Project Lead · Physical Design Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  photo: "assets/images/officers/emma_cao_headshot.jpeg"
+  details: "Electrical Engineering, Class of 2028"
+  linkedin: "https://www.linkedin.com/in/emma-cao-291a6b247/"
 
 - name: Akilesh (Aki) Subramaniam
   role: Architecture & ASIC Design Lead
@@ -26,6 +26,24 @@
 
 - name: Jessie Chan
   role: Digital Verification Lead
+  photo: ""
+  details: ""
+  linkedin: ""
+
+- name: Thomas Le
+  role: Verification Lead
+  photo: ""
+  details: ""
+  linkedin: ""
+
+- name: Jerry Huang
+  role: Architecture & ASIC Design Lead
+  photo: ""
+  details: ""
+  linkedin: ""
+
+- name: Kaitlyn Su
+  role: Corporate Lead
   photo: ""
   details: ""
   linkedin: ""
