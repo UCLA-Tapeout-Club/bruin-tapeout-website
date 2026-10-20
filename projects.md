@@ -1,6 +1,6 @@
 ---
 # Projects page. Project details live in _data/projects.yml.
-# `next_up` is the short "What's next" list at the bottom of the page.
+# `next_up` is the "What's next" list at the bottom of the page.
 # Any text below the second "---" line appears as an intro above the projects.
 layout: projects
 title: Projects
@@ -15,7 +15,15 @@ hero:
 next_up_title: What's next
 next_up:
   - title: Low-power SoC
-    text: Our first full-scale tapeout, on TSMC 65 nm through Muse Semiconductor.
+    meta: TSMC 65 nm · Muse Semiconductor · Funded
+    text: >-
+      Our first full-scale tapeout. It's many times larger than our first chip
+      and much closer to a real product. We'll use ASIC-specific techniques to
+      push power efficiency, and try design methods that FPGAs alone can't
+      support.
   - title: Fall capstone
-    text: Teams of three design their own CPU and instruction set for Tiny Tapeout.
+    meta: Tiny Tapeout · In progress
+    text: >-
+      Teams of three members design their own CPU and instruction set for a
+      Tiny Tapeout submission.
 ---

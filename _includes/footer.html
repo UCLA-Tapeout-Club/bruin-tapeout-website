@@ -33,6 +33,17 @@
         {%- endif %}
       </ul>
     </div>
+
+    {%- if site.address %}
+    <div class="footer-col">
+      <h2 class="footer-heading">Find us</h2>
+      <address>
+        {%- for line in site.address %}
+        {{ line }}{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor %}
+      </address>
+    </div>
+    {%- endif %}
   </div>
 
   <div class="container">

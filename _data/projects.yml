@@ -1,18 +1,17 @@
 # Projects, shown on the Projects page (newest first).
 # The first project is also featured on the Home page.
 #
-#   id:            used for links like /projects/#riscv8. Lowercase-with-dashes.
-#   status:        a few words, shown next to a colored dot
-#   status_key:    the dot's color: design (blue) | fabrication (gold) | complete (green)
-#   tagline:       one sentence (also used on the Home page)
-#   summary:       one or two more sentences. Markdown works: **bold**, [links](https://...)
-#   facts:         a few short facts, shown on one line
-#   image:         a picture in assets/images/projects/ (optional)
-#   image_alt:     describe the picture for screen readers
-#   image_caption: one line under the picture (optional)
-#   links:         buttons under the project; the first one is highlighted
+#   id:         used for links like /projects/#riscv8. Lowercase-with-dashes.
+#   status:     short status label shown next to a colored dot
+#   status_key: controls the status dot color: design (blue) | fabrication (gold) | complete (green)
+#   summary:    a paragraph or two (leave a blank line between paragraphs).
+#               Markdown works: **bold**, *italic*, [links](https://...).
+#   specs:      the spec sheet. The first four also appear on the Home page.
+#   milestones: progress tracker. Each step's state is done, current, or upcoming.
+#   encoding:   optional instruction-format diagram. Bit widths must add up to 8.
+#   image:      optional diagram or photo (put it in assets/images/projects/)
 #
-# To add a project, copy the whole block below (from "- id" down), paste it
+# To add a new project, copy the whole block below (from "- id" down), paste it
 # ABOVE the existing one, and edit it.
 
 - id: riscv8
@@ -22,20 +21,79 @@
   status_key: fabrication
   tagline: Our first chip, a tiny RISC-V-inspired processor you program over SPI.
   summary: |
-    We designed and verified it in SystemVerilog, then taped it out on
-    SkyWater 130 nm through Tiny Tapeout in September 2026.
-  facts:
-    - SkyWater 130 nm
-    - Tiny Tapeout SKY26c
-    - 1×1 tile
-    - SystemVerilog
-  image: /assets/images/projects/riscv8-die.jpg
+    Our first project as a club, and our first chip. It runs a modified 8-bit
+    instruction set inspired by RISC-V, small enough to fit in a single
+    Tiny Tapeout tile but complete enough to run real programs. A host
+    microcontroller (an RP2040) loads up to four instructions into the chip over
+    SPI, starts the CPU or steps through one instruction at a time, and reads
+    the result back out.
+
+    We wrote the design in SystemVerilog, verified it with cocotb testbenches,
+    and hardened it to GDS with Tiny Tapeout's open-source flow. It was taped
+    out on SkyWater 130 nm through Tiny Tapeout's **SKY26c shuttle** in
+    September 2026, and it is **currently being fabricated**.
+  features:
+    - 8-bit instructions in R-type and I-type formats
+    - 4-entry register file, 4-instruction memory, and a data-memory register
+    - "8 ALU operations: ADD, SUB, shift left and right, AND, OR, XOR, and WRITE"
+    - SPI interface for loading programs and reading results
+    - Run and single-step modes, controlled over SPI
+    - Debug readout of the program counter and data memory
+    - Data memory mirrored live on the chip's eight output pins
+  specs:
+    - label: Shuttle
+      value: Tiny Tapeout SKY26c
+    - label: Process
+      value: SkyWater SKY130 (130 nm)
+    - label: Target clock
+      value: 50 MHz
+    - label: Language
+      value: SystemVerilog
+    - label: Area
+      value: 1×1 tile (about 167 × 108 µm)
+    - label: Host interface
+      value: SPI, driven by an RP2040
+    - label: Top module
+      value: tt_um_spi_reg_bank
+  encoding:
+    - field: op
+      width: 1
+      bits: "7"
+      note: 0 = R, 1 = I
+    - field: rd
+      width: 2
+      bits: "6:5"
+      note: destination register
+    - field: rs2 / imm
+      width: 2
+      bits: "4:3"
+      note: source register or immediate
+    - field: alu op
+      width: 3
+      bits: "2:0"
+      note: one of 8 operations
+  milestones:
+    - name: Architecture
+      state: done
+    - name: RTL
+      state: done
+    - name: Verification
+      state: done
+    - name: GDS hardening
+      state: done
+    - name: Submitted
+      state: done
+    - name: Fabrication
+      state: current
+    - name: Bring-up
+      state: upcoming
+  image: /assets/images/projects/riscv8-block-diagram.svg
+  image_caption: System block diagram
   image_alt: >-
-    Layout of our chip's die area: rows of standard cells and metal wiring
-    filling one Tiny Tapeout tile.
-  image_caption: >-
-    Our tile (161 × 112 µm) on the SKY26c die, rendered from the layout we
-    submitted to Tiny Tapeout.
+    Block diagram. An RP2040 host talks over SPI (CS, MOSI, MISO, SCK) to the
+    spi_slave module, which feeds cpu_top. Inside cpu_top are the run
+    controller, program counter, instruction memory, control, register file,
+    ALU, and data memory, whose value drives output pins uo[7:0].
   links:
     - text: View on Tiny Tapeout
       url: https://tinytapeout.com/chips/ttsky26c/tt_um_spi_reg_bank

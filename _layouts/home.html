@@ -76,6 +76,7 @@ layout: default
       {%- for team in site.data.subteams %}
       <article class="team-row">
         <h3><a href="{{ '/about/' | relative_url }}#{{ team.id }}">{{ team.name }}</a></h3>
+        <p class="team-lead">{{ team.lead }}<span>Subteam lead</span></p>
         <div class="team-row-copy"><p>{{ team.short }}</p></div>
       </article>
       {%- endfor %}
@@ -95,11 +96,11 @@ layout: default
         <a class="btn" href="{{ '/projects/' | relative_url }}#{{ featured.id }}">See the project</a>
       </div>
     </div>
-    {%- if featured.image %}
-    <figure class="figure">
-      <img src="{{ featured.image | relative_url }}" alt="{{ featured.image_alt }}" width="1200" height="831" loading="lazy">
-    </figure>
-    {%- endif %}
+    <dl class="specs">
+      {%- for spec in featured.specs limit: 4 %}
+      <div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
+      {%- endfor %}
+    </dl>
   </div>
 </section>
 {%- endif %}

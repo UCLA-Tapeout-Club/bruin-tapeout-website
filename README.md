@@ -18,8 +18,8 @@ Almost every edit is in one of these files:
 | I want to change... | Edit this file |
 |:--|:--|
 | Leadership (names, roles, photos) | `_data/officers.yml` |
-| Subteams (descriptions, pictures) | `_data/subteams.yml` |
-| Projects (status, short description, picture, links) | `_data/projects.yml` |
+| Subteams (leads, descriptions, pictures) | `_data/subteams.yml` |
+| Projects (status, specs, features, links) | `_data/projects.yml` |
 | Sponsors | `_data/sponsors.yml` |
 | Sponsorship tier table | `_data/sponsor_tiers.yml` |
 | Home page numbers (3 subteams, 50+ members, ...) | `_data/stats.yml` |
@@ -29,7 +29,7 @@ Almost every edit is in one of these files:
 | Projects page "What's next" list | `projects.md` |
 | Sponsors page "Why sponsor us" and "How to give" | `sponsors.md` |
 | Contact page text and topics | `contact.md` |
-| Club email, GitHub and social links | `_config.yml` |
+| Club email, mailing address, GitHub and social links | `_config.yml` |
 | Menu links | `_data/navigation.yml` |
 | Logo files | `assets/images/logo/` (see [Logo](#logo)) |
 | Colors and fonts | top of `assets/css/main.css` |
@@ -69,11 +69,8 @@ Every data file starts with a comment that explains each field.
 
 Leave `photo: ""` to show the person's initials instead. People appear in the
 order they're listed. To add someone, copy a whole block (from `- name` down)
-and paste it where you want them to appear.
-
-This is the only file that names people. Subteam descriptions don't mention
-who leads them, so a change in leadership never requires editing anything
-else.
+and paste it where you want them to appear. If a subteam lead changes, also
+update `lead:` in `_data/subteams.yml`.
 
 ### Replace a subteam picture with a real photo
 
@@ -91,27 +88,31 @@ Edit `value:` in `_data/stats.yml`. Use `suffix: "+"` for "50+".
 
 In `_data/projects.yml`:
 
-change `status:` (the label) and `status_key:` (the color of the dot next to
-it): `design`, `fabrication`, or `complete`. For example, when the chip comes
-back from the fab:
+- Change `status:` (the label) and `status_key:` (the color of the dot next
+  to it): `design`, `fabrication`, or `complete`.
+- Move the progress tracker forward by changing each milestone's `state:` to
+  `done`, `current`, or `upcoming`.
+
+For example, when the chip comes back from the fab:
 
 ```yaml
   status: Back from the fab, now in bring-up
   status_key: complete
+  ...
+  milestones:
+    ...
+    - name: Fabrication
+      state: done
+    - name: Bring-up
+      state: current
 ```
 
 ### Add a new project
 
 Copy the whole `- id: riscv8` block in `_data/projects.yml`, paste it **above**
 the existing one (newest first), and edit it. The first project in the file is
-the one featured on the Home page. Keep it short: a one-sentence `tagline`, a
-sentence or two of `summary`, and a few `facts`. The picture is optional.
-
-The CPU's picture (`assets/images/projects/riscv8-die.jpg`) is our tile's die
-area, rendered from the layout in Tiny Tapeout's SKY26c shuttle repository
-(`projects/tt_um_spi_reg_bank/`) the same way Tiny Tapeout's tools render
-layouts. To use a different screenshot, replace that file or point `image:`
-at a new one.
+the one featured on the Home page. The `encoding`, `image`, and `milestones`
+sections are optional, so delete any that don't apply.
 
 ### Add a sponsor
 

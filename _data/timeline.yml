@@ -20,5 +20,5 @@
 
 - date: Now
   title: Chip in fabrication
-  text: Our first chip is at the fab. Next up is our first full-scale tapeout, a low-power SoC on TSMC 65 nm.
+  text: Next up is our first full-scale tapeout, a low-power SoC on TSMC 65 nm.
   current: true

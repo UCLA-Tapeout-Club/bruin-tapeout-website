@@ -16,6 +16,13 @@ description: >-
 email: bruintapeout@gmail.com
 github_url: https://github.com/UCLA-Tapeout-Club
 
+# Mailing address, one line per entry (footer and contact page).
+# Delete these lines to hide the address.
+address:
+  - Boelter Hall 2825
+  - 420 Westwood Plaza
+  - Los Angeles, CA 90095
+
 # Optional social links: fill in a full URL to show a link in the footer.
 social:
   instagram: ""

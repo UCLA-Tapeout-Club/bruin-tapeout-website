@@ -83,5 +83,5 @@
 <text x="675.2857142857143" y="98" font-size="11" font-weight="700" fill="#151515" text-anchor="middle">T1</text>
 <path d="M37 530h726v20a13 13 0 0 1-13 13H50a13 13 0 0 1-13-13z" fill="#242424"/>
 <text x="56" y="551" font-size="12" fill="#8c8580">cocotb · icarus</text>
-<text x="744" y="551" font-size="12" fill="#41ba8e" text-anchor="end">✔ TESTS=7 PASS=7 FAIL=0</text>
+<text x="744" y="551" font-size="12" fill="#41ba8e" text-anchor="end">✔ TESTS=1 PASS=1 FAIL=0</text>
 </svg>

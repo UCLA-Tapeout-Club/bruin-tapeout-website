@@ -12,12 +12,12 @@ hero:
   kicker: Sponsors
   title: Help students tape out their first chip.
   lead: >-
-    Chip design runs on professional tools, compute, and fabrication.
-    Sponsorships help make all three possible for UCLA students.
+    Chip design runs on professional tools, compute, and fabrication. Our
+    sponsors make all three possible for UCLA students.
 why_title: Why sponsor us
 reasons:
   - title: Fund real silicon
-    text: Sponsorships go toward fabrication, compute for our design tools, and workshops for new members.
+    text: Sponsorships go toward fabrication, compute for EDA tools, and workshops. Our next tapeout is a low-power SoC on TSMC 65 nm.
   - title: Meet future engineers
     text: Our 50+ members learn every stage of an industry chip team, and some have already interned at companies like NVIDIA.
   - title: Grow the community

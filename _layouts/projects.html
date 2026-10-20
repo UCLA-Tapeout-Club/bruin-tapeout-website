@@ -2,8 +2,8 @@
 layout: default
 ---
 {%- comment -%}
-  Projects page layout. Projects come from _data/projects.yml; the short
-  "What's next" list comes from `next_up` in projects.md.
+  Projects page layout. Every project comes from _data/projects.yml; the
+  "What's next" list comes from the `next_up` list in projects.md.
 {%- endcomment -%}
 {% include page-hero.html %}
 
@@ -18,37 +18,84 @@ layout: default
 
     {%- for project in site.data.projects %}
     <article class="project" id="{{ project.id }}">
-      <div>
-        {%- if project.year %}
-        <p class="kicker">{{ project.year }}</p>
-        {%- endif %}
-        <h2>{{ project.title }}</h2>
-        <p class="status status-{{ project.status_key }}">{{ project.status }}</p>
-        {%- if project.tagline %}
-        <p class="lead">{{ project.tagline }}</p>
-        {%- endif %}
-        <div class="prose">{{ project.summary | markdownify }}</div>
-        {%- if project.facts %}
-        <ul class="inline-list facts" aria-label="Key facts">
-          {%- for fact in project.facts %}
-          <li>{{ fact }}</li>
-          {%- endfor %}
-        </ul>
-        {%- endif %}
-        {%- if project.links %}
-        <div class="button-row">
-          {%- for link in project.links %}
-          <a class="btn{% unless forloop.first %} btn-outline{% endunless %}" href="{{ link.url }}">{{ link.text }}</a>
-          {%- endfor %}
+      <header class="project-header">
+        <div>
+          <p class="kicker">{{ project.year }}{% for spec in project.specs %}{% if spec.label == "Shuttle" %} · {{ spec.value }}{% endif %}{% endfor %}</p>
+          <h2>{{ project.title }}</h2>
+          <p class="lead">{{ project.tagline }}</p>
         </div>
-        {%- endif %}
+        <p class="status status-{{ project.status_key }}">{{ project.status }}</p>
+      </header>
+
+      {%- if project.milestones %}
+      <ol class="milestones" role="list" aria-label="Project progress">
+        {%- for m in project.milestones %}
+        <li class="milestone is-{{ m.state }}"{% if m.state == "current" %} aria-current="step"{% endif %}>
+          <span class="milestone-dot" aria-hidden="true"></span>
+          <span>{{ m.name }}</span>
+          <span class="sr-only">({{ m.state }})</span>
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- endif %}
+
+      <div class="project-body">
+        <div>
+          <div class="prose">
+            {{ project.summary | markdownify }}
+          </div>
+          {%- if project.features %}
+          <h3>Features</h3>
+          <ul class="check-list">
+            {%- for f in project.features %}
+            <li>{{ f }}</li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </div>
+
+        <aside aria-label="Specifications">
+          {%- if project.specs %}
+          <dl class="specs">
+            {%- for spec in project.specs %}
+            <div><dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd></div>
+            {%- endfor %}
+          </dl>
+          {%- endif %}
+          {%- if project.links %}
+          <div class="project-links">
+            {%- for link in project.links %}
+            <a class="btn{% unless forloop.first %} btn-outline{% endunless %}" href="{{ link.url }}">{{ link.text }}</a>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+        </aside>
       </div>
+
+      {%- if project.encoding %}
+      <h3>Instruction format</h3>
+      <div class="bitfield">
+        <table>
+          <caption class="sr-only">8-bit instruction encoding</caption>
+          <tr>
+            {%- for f in project.encoding %}
+            <td colspan="{{ f.width }}">
+              <span class="bitfield-bits">[{{ f.bits }}]</span>
+              <span class="bitfield-name">{{ f.field }}</span>
+              <span class="bitfield-note">{{ f.note }}</span>
+            </td>
+            {%- endfor %}
+          </tr>
+        </table>
+      </div>
+      {%- endif %}
+
       {%- if project.image %}
       <figure class="figure">
-        <a href="{{ project.image | relative_url }}"><img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" width="1200" height="831" loading="lazy"></a>
-        {%- if project.image_caption %}
-        <figcaption>{{ project.image_caption }}</figcaption>
-        {%- endif %}
+        <a href="{{ project.image | relative_url }}">
+          <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt }}" loading="lazy">
+        </a>
+        <figcaption>{{ project.image_caption | default: "Block diagram" }} (select to open full size)</figcaption>
       </figure>
       {%- endif %}
     </article>
@@ -63,7 +110,7 @@ layout: default
     <ul class="next-list">
       {%- for item in page.next_up %}
       <li>
-        <h3>{{ item.title }}</h3>
+        <h3>{{ item.title }}{% if item.meta %}<span class="next-meta">{{ item.meta }}</span>{% endif %}</h3>
         <p>{{ item.text }}</p>
       </li>
       {%- endfor %}
