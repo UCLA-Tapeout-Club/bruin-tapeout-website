@@ -17,13 +17,7 @@ hero:
 story_title: Our story
 ---
 
-Bruin Tapeout started in spring 2026 with a small group of students and one
-question: *what would it take to put our own design on a real chip?*
+We began Bruin Tapeout in spring 2026 to address a need for undergraduates at UCLA to gain hands-on experience with digital chip design. Many electrical engineering students at UCLA may go their entire degree without gaining proper exposure to this field, locking them out of the experience necessary to pursue careers in VLSI, silicon engineering, and digital chip design. We wanted to bridge that gap and cultivate a community where such an interest can be nurtured.
 
-Our answer was a modified 8-bit RISC-V CPU. We designed it, verified it, and
-taped it out on SkyWater 130 nm through Tiny Tapeout in September 2026. It's
-being fabricated now.
-
-This fall, more than 40 undergraduates joined our pilot program to learn the
-full flow, and we've grown to 50+ members. Next up is our first full-scale
-tapeout: a low-power SoC on TSMC 65 nm.
+This fall, more than 45 undergraduates joined our pilot program to learn the
+full flow. We're currently gearing up for our first full-scale tapeout using fully proprietary tools: a low-power SoC on TSMC 65 nm.

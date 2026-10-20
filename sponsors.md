@@ -9,8 +9,7 @@ description: >-
   The companies that support Bruin Tapeout, and how to sponsor UCLA students
   taping out their first chips.
 hero:
-  kicker: Sponsors
-  title: Help students tape out their first chip.
+  title: Sponsors
   lead: >-
     Chip design runs on professional tools, compute, and fabrication. Our
     sponsors make all three possible for UCLA students.

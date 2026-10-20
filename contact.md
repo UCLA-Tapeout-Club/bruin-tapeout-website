@@ -7,8 +7,7 @@ title: Contact
 permalink: /contact/
 description: Get in touch with Bruin Tapeout at bruintapeout@gmail.com.
 hero:
-  kicker: Contact
-  title: Let's talk chips.
+  title: Contact Us
   lead: >-
     Questions about joining, sponsoring, or collaborating? Email us and an
     officer will get back to you.

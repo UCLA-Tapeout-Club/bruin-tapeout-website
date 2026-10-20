@@ -5,28 +5,25 @@ layout: default
   About page layout. The history text lives in about.md and the "how we do
   things" list in its front matter. Subteams, people, and the timeline come
   from _data/subteams.yml, _data/officers.yml, and _data/timeline.yml.
+  The page reads top to bottom as: how we work, what we've done so far, how
+  the team is organized, who leads it, and how to join.
+  The history starts collapsed; visitors open it with "Read more".
 {%- endcomment -%}
 {% include page-hero.html %}
 
-<section class="section" aria-label="Our history">
-  <div class="container split">
-    <div class="prose">
-      {{ content }}
-    </div>
-    <aside aria-labelledby="timeline-title">
-      <h2 id="timeline-title" class="kicker">Timeline</h2>
-      <ol class="timeline">
-        {%- for item in site.data.timeline %}
-        <li class="timeline-item{% if item.current %} is-current{% endif %}">
-          <span class="timeline-date">{{ item.date }}</span>
-          <span class="timeline-title">{{ item.title }}</span>
-          <span class="timeline-text">{{ item.text }}</span>
-        </li>
-        {%- endfor %}
-      </ol>
-    </aside>
+<!-- <section class="section" aria-label="Our history">
+  <div class="container">
+    <details class="story">
+      <summary>
+        <h2>{{ page.story_title | default: "Our story" }}</h2>
+        <span class="story-toggle" aria-hidden="true"><span class="story-more">Read more</span><span class="story-less">Show less</span></span>
+      </summary>
+      <div class="prose story-body">
+        {{ content }}
+      </div>
+    </details>
   </div>
-</section>
+</section> -->
 
 {%- if page.values %}
 <section class="section" aria-labelledby="values-title">
@@ -44,6 +41,21 @@ layout: default
 </section>
 {%- endif %}
 
+<section class="section" aria-labelledby="timeline-title">
+  <div class="container">
+    <h2 id="timeline-title" class="section-head">{{ page.timeline_title | default: "Timeline" }}</h2>
+    <ol class="timeline timeline-horizontal">
+      {%- for item in site.data.timeline %}
+      <li class="timeline-item{% if item.current %} is-current{% endif %}">
+        <span class="timeline-date">{{ item.date }}</span>
+        <span class="timeline-title">{{ item.title }}</span>
+        <span class="timeline-text">{{ item.text }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
 <section class="section" aria-labelledby="subteams-title">
   <div class="container">
     <div class="section-head">
@@ -58,9 +70,6 @@ layout: default
         </figure>
         <div>
           <h3>{{ team.name }}</h3>
-          {%- if team.lead %}
-          <p class="subteam-lead">Led by <strong>{{ team.lead }}</strong></p>
-          {%- endif %}
           <p>{{ team.description }}</p>
           {%- if team.learn %}
           <h4>What you'll learn</h4>
@@ -90,9 +99,7 @@ layout: default
 
 <section class="section" aria-labelledby="people-title">
   <div class="container">
-    <div class="section-head">
-      <h2 id="people-title">{{ page.people_title | default: "Leadership" }}</h2>
-    </div>
+    <h2 id="people-title" class="section-head">{{ page.people_title | default: "Leadership" }}</h2>
     <ul class="people" role="list">
       {%- for person in site.data.officers %}
       <li>{% include person.html person=person %}</li>

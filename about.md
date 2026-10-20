@@ -6,26 +6,23 @@ layout: about
 title: About
 permalink: /about/
 description: >-
-  The story of Bruin Tapeout, UCLA's undergraduate chip design team, and the
-  three subteams that design, verify, and lay out our chips.
+  An overview of our organization structure, subteams, and current leadership.
 hero:
-  kicker: About us
-  title: We learn to build chips by building them.
-  lead: >-
-    Bruin Tapeout takes students from a design specification to a fabricated
-    chip using industry-standard tools.
+  title: About us
+  lead: >- 
+    An overview of our organization structure, subteams, and current leadership.
 values_title: How we work
 values:
   - title: Learn by taping out
     text: Every concept we teach is in service of a real chip. Nothing beats sending your own design to the fab.
   - title: Use industry tools
-    text: Members learn the flow industry chip teams use, from SystemVerilog to Cadence Genus and Innovus.
+    text: Members learn the flow industry chip teams use, from writing synthesizable RTL to checking DRCs in Calibre.
   - title: Build a community
     text: We're growing a community of student chip designers ready for careers in architecture, silicon engineering, and VLSI.
+timeline_title: Timeline
 people_title: Leadership
+story_title: Our story
 ---
-
-## Our story
 
 Most students who study digital design never see their work leave a
 simulator. Taping out a chip has traditionally happened in graduate research

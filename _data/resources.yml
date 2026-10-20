@@ -76,8 +76,8 @@
   intro: Synthesis, place and route, timing closure, and signoff.
   subteam: physical-design
   links:
-    - title: Bruin Tapeout physical design wiki
-      url: https://github.com/UCLA-Tapeout-Club/pd-wiki
+    - title: Bruin Tapeout Physical Design Wiki
+      url: https://ucla-tapeout-club.github.io/pd-wiki/
       source: GitHub
       note: Our guide to building a place-and-route flow from the template.
     - title: Timing constraints (SDC) primer

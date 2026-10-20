@@ -19,6 +19,6 @@
   text: More than 40 undergraduates join to learn the full flow across three subteams, and capstone teams design their own CPUs.
 
 - date: Now
-  title: Chip in fabrication
+  title: Full-scale tapeout in progress
   text: Next up is our first full-scale tapeout, a low-power SoC on TSMC 65 nm.
   current: true

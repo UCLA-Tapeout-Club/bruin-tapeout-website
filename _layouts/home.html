@@ -53,7 +53,7 @@ layout: default
       <div class="prose">
         {{ content }}
       </div>
-      <a class="text-link" href="{{ '/about/' | relative_url }}">Read our full story</a>
+      <a class="text-link" href="{{ '/about/' | relative_url }}">Read more about us</a>
     </div>
     <ol class="timeline" aria-label="Timeline">
       {%- for item in site.data.timeline %}
@@ -76,7 +76,6 @@ layout: default
       {%- for team in site.data.subteams %}
       <article class="team-row">
         <h3><a href="{{ '/about/' | relative_url }}#{{ team.id }}">{{ team.name }}</a></h3>
-        <p class="team-lead">{{ team.lead }}<span>Subteam lead</span></p>
         <div class="team-row-copy"><p>{{ team.short }}</p></div>
       </article>
       {%- endfor %}

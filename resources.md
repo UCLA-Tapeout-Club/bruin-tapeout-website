@@ -8,8 +8,7 @@ description: >-
   Guides, docs, and recorded lectures on digital design, verification, and
   physical design, picked by Bruin Tapeout's subteams.
 hero:
-  kicker: Resources
-  title: Learn chip design at your own pace.
+  title: Resources
   lead: >-
     Guides, docs, and recorded lectures from each subteam. Open them any time,
     whether you're just starting out or brushing up before a meeting.

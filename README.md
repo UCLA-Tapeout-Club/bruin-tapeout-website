@@ -18,7 +18,7 @@ Almost every edit is in one of these files:
 | I want to change... | Edit this file |
 |:--|:--|
 | Leadership (names, roles, photos) | `_data/officers.yml` |
-| Subteams (leads, descriptions, pictures) | `_data/subteams.yml` |
+| Subteams (descriptions, pictures, tools) | `_data/subteams.yml` |
 | Projects (status, specs, features, links) | `_data/projects.yml` |
 | Sponsors | `_data/sponsors.yml` |
 | Sponsorship tier table | `_data/sponsor_tiers.yml` |
@@ -70,8 +70,8 @@ Every data file starts with a comment that explains each field.
 
 Leave `photo: ""` to show the person's initials instead. People appear in the
 order they're listed. To add someone, copy a whole block (from `- name` down)
-and paste it where you want them to appear. If a subteam lead changes, also
-update `lead:` in `_data/subteams.yml`.
+and paste it where you want them to appear. This is the only file to update
+when leadership changes; the subteam descriptions don't name anyone.
 
 ### Replace a subteam picture with a real photo
 
@@ -218,7 +218,7 @@ _data/               all the editable content lists
 _layouts/            page templates (one per page type)
 _includes/           reusable pieces: header, footer, page header, people
 assets/css/main.css  all styles; colors and fonts are at the top
-assets/js/main.js    mobile menu and copy-email button
+assets/js/main.js    mobile menu, copy-email button, scroll animations
 assets/images/       logo, photos, illustrations
 index.md, about.md, projects.md, sponsors.md, contact.md   the pages
 ```
