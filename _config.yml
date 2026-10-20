@@ -36,7 +36,7 @@ social:
 #   and url to "https://bruintapeout.com".
 # -----------------------------------------------------------------------------
 url: "https://sugar0ats.github.io"
-baseurl: "/bruin-tapeout_website"
+baseurl: "/bruin-tapeout-website"
 
 # -----------------------------------------------------------------------------
 # Build settings (you shouldn't need to touch these)
