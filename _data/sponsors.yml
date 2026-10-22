@@ -11,9 +11,6 @@
 - name: Cadence
   full_name: Cadence Design Systems
   url: https://www.cadence.com
-  logo: ""
+  logo: "assets/images/sponsors/Cadence_Logo_Red.png"
   description: >-
-    Cadence is a leader in electronic design automation (EDA) software. Our
-    members learn the digital implementation flow on Cadence tools, including
-    Genus for synthesis and Innovus for place and route. We're grateful for
-    Cadence's support of hands-on chip-design education at UCLA.
+    Cadence is a market leader in AI and digital twins, pioneering the application of computational software to accelerate innovation in the engineering design of silicon to systems.
