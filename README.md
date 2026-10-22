@@ -6,7 +6,7 @@ It's a [Jekyll](https://jekyllrb.com) site hosted for free on GitHub Pages.
 **You don't need to install anything to edit it.** Change a file on GitHub,
 commit, and the live site updates in a minute or two.
 
-- Live site: <https://sugar0ats.github.io/bruin-tapeout_website/>
+- Live site: <https://ucla-tapeout-club.github.io/bruin-tapeout_website/>
 - Pages: Home, About, Projects, Resources, Sponsors, Contact
 
 ---
