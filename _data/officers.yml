@@ -14,42 +14,48 @@
 
 - name: Emma Cao
   role: Project Lead · Physical Design Lead
-  photo: "assets/images/officers/emma_cao_headshot.jpeg"
+  photo: "assets/images/officers/emma_cao_headshot.jpg"
   details: "Electrical Engineering, Class of 2028"
   linkedin: "https://www.linkedin.com/in/emma-cao-291a6b247/"
 
 - name: Akilesh (Aki) Subramaniam
-  role: Architecture & ASIC Design Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  role: Architecture Lead · ASIC Design Lead
+  photo: "assets/images/officers/aki_subramaniam_headshot.jpg"
+  details: "Electrical Engineering, Class of 2028"
+  linkedin: "https://www.linkedin.com/in/akilesh-subramaniam/"
 
 - name: Jessie Chan
-  role: Digital Verification Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  role: Verification Lead
+  photo: "assets/images/officers/jessie_chan_headshot.jpg"
+  details: "Electrical Engineering, Class of 2027"
+  linkedin: "https://www.linkedin.com/in/jessiechan123/"
 
 - name: Thomas Le
   role: Verification Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  photo: "assets/images/officers/thomas_le_headshot.jpg"
+  details: "Electrical Engineering, Class of 2028"
+  linkedin: "https://www.linkedin.com/in/thomas-1e/"
 
 - name: Jerry Huang
-  role: Architecture & ASIC Design Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  role: Architecture Lead · Physical Design Lead
+  photo: "assets/images/officers/jerry_huang_headshot.jpg"
+  details: "Electrical Engineering, Class of 2028"
+  linkedin: "https://www.linkedin.com/in/jerryhuang06/"
 
 - name: Kaitlyn Su
   role: Corporate Lead
-  photo: ""
-  details: ""
-  linkedin: ""
+  photo: "assets/images/officers/kaitlyn_su_headshot.jpg"
+  details: "Electrical Engineering, Class of 2029"
+  linkedin: "https://www.linkedin.com/in/kaitlyn-su/"
+
+- name: Johnny You
+  role: Validation Lead
+  photo: "assets/images/officers/johnny_you_headshot.jpg"
+  details: "Electrical Engineering, Class of 2027"
+  linkedin: "https://www.linkedin.com/in/johnny-you/"
 
 - name: Nader Sehatbakhsh
   role: Faculty Advisor
-  photo: ""
-  details: ""
-  linkedin: ""
+  photo: "assets/images/officers/nader_sehatbakhsh_headshot.jpg"
+  details: "Assistant Professor in Electrical and Computer Engineering"
+  linkedin: "https://www.linkedin.com/in/nadersb/"
